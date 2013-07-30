@@ -1,0 +1,25 @@
+Worksheet for CS491 Lab 1
+Getting Started with GENI and the GENI Portal
+
+Aggregate: Kettering InstaGENI (ketteringu.cm)
+
+Step 0: Obtain a GENI Portal account and join the CS491 project on the Portal.
+
+Step 1: Generate and download your ssh keypair.
+
+Step 2: Create a slice in flack: (username)lab1 (e.g. chan7781lab1)
+
+Step 3: Reserve two VMs at Kettering
+        Check whether VMs are ready to use
+		
+Step 4: Log into nodes (blank lines)
+
+Step 5: Execute experiment (pings)
+
+Time permitting:Layer 2 pings
+http://www.gpolab.bbn.com/experiment-support/Layer2Ping/pingPlus-0.2.tar.gz
+
+Step 6: Log out of your nodes
+        Delete your resources
+		
+Adapted from Edwards, S. & Riga, N. (2013, July) Getting started with GENI and the GENI Portal, part 1. Presented at the 17th GENI Engineering Conference, Madison WI. http://groups.geni.net/geni/wiki/GEC17Agenda/GettingStartedWithGENI_I

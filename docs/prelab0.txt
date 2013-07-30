@@ -1,0 +1,24 @@
+
+
+What students need to do:
+(You can do this from your computer, whatever OS it's running.)
+
+Go to https://portal.geni.net/idp/request.html
+Fill out the information, hit 'Submit', and wait for GPO to get back to you 
+with account credentials.
+
+Once you have account credentials (you'll receive an email):
+Go to https://portal.geni.net/
+Click 'Use GENI'
+Enter 'GENI Project Office' in the textbox
+Click 'Continue'
+Click 'Join a Project'
+Find Dr. Geske's project and click 'Join'
+
+(You should do the following from a Linux box, probably a computer in syslab.)
+(Lines starting with $ should be typed in the terminal, but without the $ 
+character.)
+
+$ ssh-keygen
+Hit enter to accept the default key location
+Enter a passphrase if you want to; else just hit enter for no passphrase
