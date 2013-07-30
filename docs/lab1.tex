@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage}
+\usepackage{url}
+\makeatletter
+\newcommand*{\textoverline}[1]{$\overline{\hbox{#1}}\m@th$}
+
+\newcommand*{\fitb}[2]
+{\raisebox{-1.3ex}{\textoverline{{\makebox[#1]{{\rule{0pt}{5pt}\tiny #2}}}}}}
+\makeatother
+\begin{document}
+\raggedright
+\centerline{\textbf{High-Speed Networking and Distributed Applications}}
+\centerline{\textbf{Lab Exercise 1: Introduction to GENI and the GENI Portal}}
+~\\
+\centerline{\textbf{CS-491 \hfill Summer 2013}}
+\noindent\rule{\textwidth}{1pt}
+
+\bigskip
+In this lab exercise, you will reserve some compute resources in the GENI 
+environment using the graphical tool Flack. You will log into these virtual
+machines and verify IP (layer 3) connectivity between them using 
+\texttt{ping}. Time permitting, you will also disable IP connectivity between 
+them and verify layer 2 connectivity using \texttt{pingPlus}.
+
+\subsection*{Procedure}
+
+\begin{description}
+
+\item[Step 0:]
+Obtain a GENI Portal account and join the CS491 project on the GENI Portal.
+
+\item[Step 1:]
+Generate and download your \texttt{ssh} keypair.
+
+\item[Step 2:]
+Create a slice in Flack with the name \fitb{1in}{username}\texttt{lab1}.
+
+\item[Step 3:]
+In Flack, reserve two virtual machines at the Kettering InstaGENI rack
+(\texttt{geni.kettering.edu.cm}). Name one of them \texttt{client} and the 
+other \texttt{server}.
+
+Wait until the resources are ready (the Flack canvas will turn green).
+
+\item[Step 4:]
+Log into the nodes:
+
+client login: \texttt{ssh -p}\fitb{0.5in}{port}\hspace{4pt}
+\fitb{1in}{username}\texttt{@}\fitb{0.5in}{hostname}\texttt{.geni.kettering.edu}
+
+server login: \texttt{ssh -p}\fitb{0.5in}{port}\hspace{4pt}
+\fitb{1in}{username}\texttt{@}\fitb{0.5in}{hostname}\texttt{.geni.kettering.edu}
+
+\item[Step 5:]
+Verify IP (layer 3) connectivity between the two nodes by \texttt{ping}.
+
+\texttt{server}'s data interface: \fitb{0.75in}{name} \fitb{2in}{IP address}
+
+\texttt{client}'s data interface: \fitb{0.75in}{name} \fitb{2in}{IP address}
+
+\item[\emph{Time permitting:}]
+Disable IP connectivity and verify layer 2 connectivity between nodes 
+by \texttt{pingPlus}.\\
+\url{http://paws.kettering.edu/~chan7781/geni/pingPlus-0.2.tar.gz}
+
+\texttt{server}'s data interface: \fitb{2in}{hardware address}
+
+\item[Step 6:]
+Clean up after yourself. Log out of your nodes, and delete your resources
+or let them expire.
+
+\end{description}
+
+\subsection*{Acknowledgement}
+
+Adapted from Edwards, S. \& Riga, N. (2013, July).
+``Getting started with GENI and the GENI Portal, part 1''.
+Presented at the \emph{17th GENI Engineering Conference}, Madison, Wisconsin.
+\url{http://groups.geni.net/geni/wiki/GEC17Agenda/GettingStartedWithGENI_I}
+
+\end{document}
+

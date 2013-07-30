@@ -16,7 +16,7 @@ Step 4: Log into nodes (blank lines)
 
 Step 5: Execute experiment (pings)
 
-Time permitting:Layer 2 pings
+Time permitting: Layer 2 pings
 http://www.gpolab.bbn.com/experiment-support/Layer2Ping/pingPlus-0.2.tar.gz
 
 Step 6: Log out of your nodes
