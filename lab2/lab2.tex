@@ -10,7 +10,7 @@
 \begin{document}
 \raggedright
 \centerline{\textbf{High-Speed Networking and Distributed Applications}}
-\centerline{\textbf{Lab Exercise 2: Introduction to the GENI APIs and} \texttt{omni}}
+\centerline{\textbf{Lab Exercise 2: Introduction to GCF and Install Scripts}}
 ~\\
 \centerline{\textbf{CS-491 \hfill Summer 2013}}
 \noindent\rule{\textwidth}{1pt}
@@ -18,7 +18,7 @@
 \bigskip
 In this lab exercise, you will set up the GENI Control Framework on your 
 computer and work with resource specification (rspec) XML files. You will also 
-load and run software automatically in a GENI node using the rspec's install 
+load and run software automatically in a GENI node using install 
 script functionality.
 
 
@@ -35,6 +35,7 @@ and follow the instructions at
     \texttt{gcf-2.3.3} directory to your home folder because you don't have 
     root privileges on the box. If you're using your own laptop, you can copy 
     the directory anywhere you want.}
+    
 Stop right after step 3 ``Install software dependencies'', because 
 configuration will be handled through the GENI Portal.
 
@@ -45,24 +46,56 @@ navigation, then click ``Configure \texttt{omni}''.
 Download your customized configuration data, making sure you select 
 \texttt{KU-CS491} as your default project.
 
-Run 
-\begin{verbatim}
-omni-configure.py
-\end{verbatim}
+Run \texttt{omni-configure.py}
 in the terminal and \texttt{omni} will autoconfigure itself based on the 
 configuration data you downloaded. If it complains that a key already exists, 
 hit \texttt{n} to not replace it.
 
 \item[Step 2:]
 Create a slice through the GENI Portal and call it 
-\fitb{1in}{username}\texttt{lab2}. Launch Flack.
+\texttt{\fitb{1in}{username}lab2}. Launch Flack.
 
 \item[Step 3:]
 Import the experiment. Select ``Import $\rightarrow$ Import from Web'' in
 Flack, and supply this URL: 
 \url{http://alis0nc.github.io/cs491/lab2/lab2.rspec}.
 Specify that you want to use the Kettering aggregate manager, 
-\texttt{geni.kettering.edu.cm}.
+\texttt{geni.kettering.edu.cm}. Wait for your resources to become ready.
+
+\newpage
+
+\item[Step 4:]
+Once they're ready, click on the info button for each node and add an install 
+service. Supply the install url 
+\url{http://alis0nc.github.io/cs491/lab2/lab2.tar.gz} and install location 
+\texttt{/local}.
+
+Add an execute service similarly with command 
+\texttt{sudo /local/install-script.sh} to be executed using \texttt{sh}.
+
+\item[Step 5:]
+We are going to draw back the curtain and see what's going on behind the 
+scenes. 
+(\emph{Pay no attention to that man behind the curtain.}\footnote
+    {\emph{The Wizard of Oz}, 1939.
+     \url{www.youtube.com/watch?v=YWyCCJ6B2WE‎}})
+
+
+In Flack, select ``View $\rightarrow$ Preview request document(s)''
+and save the request rspec file. Examine it either in the Flack window 
+or your favourite text editor. This xml file contains the specifications for 
+the compute resources (virtual machine nodes) and network links you 
+requested in Flack. This file gets sent to the aggregate manager so that it 
+can give you what you requested.
+
+\item[Step 6:]
+We're switching from Flack to the command line \texttt{omni} tool now. 
+In a terminal, run \texttt{omni.py createslice \fitb{1in}{username}lab2omni}.
+This should succeed with a message to that effect in the terminal.
+
+Now run
+\texttt{omni.py createsliver -a ig-kettering \fitb{1in}{username}lab2omni
+\fitb{2in}{path to rspec you saved in step 5}}.
 
 \end{description}
 
