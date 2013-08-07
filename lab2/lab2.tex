@@ -1,0 +1,73 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage{url}
+\makeatletter
+\newcommand*{\textoverline}[1]{$\overline{\hbox{#1}}\m@th$}
+
+\newcommand*{\fitb}[2]
+{\raisebox{-1.3ex}{\textoverline{{\makebox[#1]{{\rule{0pt}{5pt}\tiny #2}}}}}}
+\makeatother
+\begin{document}
+\raggedright
+\centerline{\textbf{High-Speed Networking and Distributed Applications}}
+\centerline{\textbf{Lab Exercise 2: Introduction to the GENI APIs and} \texttt{omni}}
+~\\
+\centerline{\textbf{CS-491 \hfill Summer 2013}}
+\noindent\rule{\textwidth}{1pt}
+
+\bigskip
+In this lab exercise, you will set up the GENI Control Framework on your 
+computer and work with resource specification (rspec) XML files. You will also 
+load and run software automatically in a GENI node using the rspec's install 
+script functionality.
+
+
+\subsection*{Procedure}
+
+\begin{description}
+
+\item[Step 0:]
+Download \texttt{gcf} from  
+\url{http://software.geni.net/local-sw/download&software=gcf-2.3.3.tar.gz} 
+and follow the instructions at 
+\url{http://trac.gpolab.bbn.com/gcf/wiki/QuickStart} to install it.\footnote
+    {If you're using a syslab computer, you should copy the 
+    \texttt{gcf-2.3.3} directory to your home folder because you don't have 
+    root privileges on the box. If you're using your own laptop, you can copy 
+    the directory anywhere you want.}
+Stop right after step 3 ``Install software dependencies'', because 
+configuration will be handled through the GENI Portal.
+
+\item[Step 1:]
+Go to your GENI Portal account and click the ``Profile'' link at the top 
+navigation, then click ``Configure \texttt{omni}''. 
+
+Download your customized configuration data, making sure you select 
+\texttt{KU-CS491} as your default project.
+
+Run 
+\begin{verbatim}
+omni-configure.py
+\end{verbatim}
+in the terminal and \texttt{omni} will autoconfigure itself based on the 
+configuration data you downloaded. If it complains that a key already exists, 
+hit \texttt{n} to not replace it.
+
+\item[Step 2:]
+Create a slice through the GENI Portal and call it 
+\fitb{1in}{username}\texttt{lab2}. Launch Flack.
+
+\item[Step 3:]
+
+
+\end{description}
+
+\subsection*{Acknowledgement}
+
+Adapted from Wong, G. (2013-07-21).
+``Getting started with GENI and the GENI Portal, part II''.
+Presented at the \emph{17th GENI Engineering Conference}, Madison, Wisconsin.
+\url{http://groups.geni.net/geni/wiki/GEC17Agenda/GettingStartedWithGENI_II}
+
+\end{document}
+
