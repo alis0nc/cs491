@@ -15,4 +15,4 @@ This is where files for [Kettering University](http://kettering.edu)'s [CS](http
 Add the following lines to your `~/.ssh/config` file:
 
     Host *
-        ServerAliveInterval 60
+        ServerAliveInterval 20
