@@ -12,7 +12,7 @@
 \centerline{\textbf{High-Speed Networking and Distributed Applications}}
 \centerline{\textbf{Lab Exercise 2: Introduction to GCF and Install Scripts}}
 ~\\
-\centerline{\textbf{CS-491 \hfill Summer 2013}}
+\centerline{\textbf{CS491 \hfill Summer 2013}}
 \noindent\rule{\textwidth}{1pt}
 
 \bigskip
@@ -62,7 +62,9 @@ Flack, and supply this URL:
 Specify that you want to use the Kettering aggregate manager, 
 \texttt{geni.kettering.edu.cm}. Wait for your resources to become ready.
 
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \item[Step 4:]
 Once they're ready, click on the info button for each node and add an install 
@@ -95,7 +97,22 @@ This should succeed with a message to that effect in the terminal.
 
 Now run
 \texttt{omni.py createsliver -a ig-kettering \fitb{1in}{username}lab2omni
-\fitb{2in}{path to rspec you saved in step 5}}.
+\fitb{2in}{path to rspec you saved in step 5}}. This takes a while, but after 
+a few minutes you should see a ``Completed createsliver'' message and now your 
+reserved nodes are ready to log into.
+
+\item[Step 7:]
+Follow the instructions at 
+\url{http://groups.geni.net/geni/wiki/GEC17Agenda/GettingStartedWithGENI_II/ExecuteExperiment}
+to log into your nodes and look at the experiment results. Use \texttt{ig-kettering}
+for the \texttt{AM\_NICKNAME} and \texttt{\fitb{1in}{username}lab2omni} for the 
+\texttt{SLICENAME}.
+
+\item[Step 8:]
+Clean up after yourself by deleting your resources. You already know how to do 
+this in Flack. In omni, it's \texttt{omni.py -a ig-kettering deletesliver 
+\fitb{1in}{username}lab2omni}. When that command succeeds, you'll see the 
+output of ``Completed deletesliver''.
 
 \end{description}
 
