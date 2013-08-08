@@ -58,7 +58,14 @@
 <li><a href="lab2/gcf-2.3.3.tar.gz">GENI Control Framework tarball</a></li>
 <li><a href="lab2/lab2.rspec">Original request resource specification (rspec)</a></li>
 <li><a href="lab2/lab2.tar.gz">Tarball to install on experiment nodes</a></li>
-</ul>
+</ul><h3>
+<a name="ssh-trick" class="anchor" href="#ssh-trick"><span class="octicon octicon-link"></span></a>SSH trick</h3>
+
+<p>Add the following lines to your <code>~/.ssh/config</code> file:</p>
+
+<pre><code>Host *
+    ServerAliveInterval 60
+</code></pre>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/alis0nc">alis0nc</a></p>
