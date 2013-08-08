@@ -56,18 +56,20 @@ Create a slice through the GENI Portal and call it
 \texttt{\fitb{1in}{username}lab2}. Launch Flack.
 
 \item[Step 3:]
-Import the experiment. Select ``Import $\rightarrow$ Import from Web'' in
-Flack, and supply this URL: 
-\url{http://alis0nc.github.io/cs491/lab2/lab2.rspec}.
-Specify that you want to use the Kettering aggregate manager, 
-\texttt{geni.kettering.edu.cm}. Wait for your resources to become ready.
+Import the experiment. Download the rspec from
+\url{http://alis0nc.github.io/cs491/lab2/lab2.rspec}, 
+select ``Import $\rightarrow$ Import from file'' in
+Flack, and navigate to that rspec you saved.
+Specify that you want to use the GPO InstaGENI aggregate manager, 
+\texttt{instageni.gpolab.bbn.com.cm}. Don't hit Submit; you shouldn't actually 
+reserve resources in this step.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \item[Step 4:]
-Once they're ready, click on the info button for each node and add an install 
+Click on the info button for each node and add an install 
 service. Supply the install url 
 \url{http://alis0nc.github.io/cs491/lab2/lab2.tar.gz} and install location 
 \texttt{/local}.
@@ -84,11 +86,17 @@ scenes.
 
 
 In Flack, select ``View $\rightarrow$ Preview request document(s)''
-and save the request rspec file. Examine it either in the Flack window 
-or your favourite text editor. This xml file contains the specifications for 
+and save the request rspec file. Examine it in your favourite text editor. 
+This xml file contains the specifications for 
 the compute resources (virtual machine nodes) and network links you 
 requested in Flack. This file gets sent to the aggregate manager so that it 
 can give you what you requested.
+
+While you're examining the rspec, make sure the \texttt{<install>} tag comes 
+before the \texttt{<execute>} tag within the \texttt{<services>} section of 
+each node. When I added the install and execute services, Flack put the 
+\texttt{<execute>} tag first for some reason, so it was trying to execute 
+something that didn't exist yet.
 
 \item[Step 6:]
 We're switching from Flack to the command line \texttt{omni} tool now. 
@@ -96,7 +104,7 @@ In a terminal, run \texttt{omni.py createslice \fitb{1in}{username}lab2omni}.
 This should succeed with a message to that effect in the terminal.
 
 Now run
-\texttt{omni.py createsliver -a ig-kettering \fitb{1in}{username}lab2omni
+\texttt{omni.py createsliver -a ig-gpo \fitb{1in}{username}lab2omni
 \fitb{2in}{path to rspec you saved in step 5}}. This takes a while, but after 
 a few minutes you should see a ``Completed createsliver'' message and now your 
 reserved nodes are ready to log into.
@@ -104,13 +112,13 @@ reserved nodes are ready to log into.
 \item[Step 7:]
 Follow the instructions at 
 \url{http://groups.geni.net/geni/wiki/GEC17Agenda/GettingStartedWithGENI_II/ExecuteExperiment}
-to log into your nodes and look at the experiment results. Use \texttt{ig-kettering}
+to log into your nodes and look at the experiment results. Use \texttt{ig-gpo}
 for the \texttt{AM\_NICKNAME} and \texttt{\fitb{1in}{username}lab2omni} for the 
 \texttt{SLICENAME}.
 
 \item[Step 8:]
 Clean up after yourself by deleting your resources. You already know how to do 
-this in Flack. In omni, it's \texttt{omni.py -a ig-kettering deletesliver 
+this in Flack. In omni, it's \texttt{omni.py -a ig-gpo deletesliver 
 \fitb{1in}{username}lab2omni}. When that command succeeds, you'll see the 
 output of ``Completed deletesliver''.
 
