@@ -1,6 +1,8 @@
 ### Welcome to CS491.
 This is where files for [Kettering University](http://kettering.edu)'s [CS](http://kettering.edu/cs/)491 _High Speed Networking and Distributed Applications_ course live.
 
+Maybe you want to [set up a lab](/labsetup.html).
+
 ### Lab 1
 * [Lab 1 worksheet](lab1/lab1.pdf)
 * [pingPlus tarball](lab1/pingPlus-0.2.tar.gz)
